@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cornelius Ayomide | Graphic Designer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0a192f;
+            --secondary: #172a45;
+            --accent: #64ffda;
+            --text-primary: #ccd6f6;
+            --text-secondary: #8892b0;
+            --white: #e6f1ff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: var(--primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Header */
+        header {
+            padding: 2rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            background-color: rgba(10, 25, 47, 0.9);
+            z-index: 100;
+            backdrop-filter: blur(5px);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent);
+            font-family: 'Space Mono', monospace;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+        }
+        
+        .hero-subtitle {
+            color: var(--accent);
+            font-family: 'Space Mono', monospace;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+        
+        .hero-description {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 1rem 1.75rem;
+            background: transparent;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            border-radius: 4px;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.9rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+        
+        .btn:hover {
+            background: rgba(100, 255, 218, 0.1);
+        }
+        
+        /* Work Section */
+        .work {
+            padding: 8rem 0;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            color: var(--white);
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 1px;
+            background-color: var(--secondary);
+            bottom: -10px;
+            left: 0;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .project-card {
+            background-color: var(--secondary);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .project-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+         .project-image2 {
+            width: 315px;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .project-info {
+            padding: 1.5rem;
+        }
+        
+        .project-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--white);
+        }
+        
+        .project-description {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .tag {
+            background-color: rgba(100, 255, 218, 0.1);
+            color: var(--accent);
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-family: 'Space Mono', monospace;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 8rem 0;
+            text-align: center;
+        }
+        
+        .contact-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-subtitle {
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 3rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-item:hover {
+            color: var(--accent);
+        }
+        
+        .contact-icon {
+            font-size: 1.2rem;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--secondary);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1.5rem;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">CA</div>
+                <div class="nav-links">
+                    <a href="#work">Work</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <p class="hero-subtitle">Hi, my name is</p>
+                <h1 class="hero-title">Cornelius Ayomide.</h1>
+                <h2 class="hero-title" style="color: var(--text-secondary);">I create visual designs that are functional.</h2>
+                <p class="hero-description">
+                    I'm a graphic designer specializing in creating bold, clean and well layed out designs. With a focus on balance, color theory, and simplicity, I help create designs that meet clients intended purpose.
+                </p>
+                <a href="#work" class="btn">View My Work</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="work" class="work">
+        <div class="container">
+            <h2 class="section-title">Selected Works</h2>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <img src="/storage/emulated/0/DCIM/Design portfolio/FINAL-WORKSHOP-FLYER.jpg?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Workshop flyer" class="project-image">
+                    <div class="project-info">
+                        <h3 class="project-title">Workshop Flyer Design</h3>
+                        <p class="project-description">When the facilitators from Optica and SPIE collaborate with the National Association Of Physics Students in the University of Ibadan, the flyer design just has to bear a scientific and futuristic aura.</p>
+                        <div class="project-tags">
+                            <span class="tag">Flyer Design</span>
+                            <span class="tag">Futuristic</span>
+                            <span class="tag">Science</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <img src="/storage/emulated/0/DCIM/Design portfolio/DECEMBER DESIGN 1.jpg?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="New Month Flyer" class="project-image">
+                    <div class="project-info">
+                        <h3 class="project-title">New Month Flyer</h3>
+                        <p class="project-description">Clean and attractive flyer design made for the purpose of welcoming members of the National Association of Physics Students into a new month - December.</p>
+                        <div class="project-tags">
+                            <span class="tag">Flyer Design</span>
+                            <span class="tag">New Month</span>
+                            <span class="tag">Science</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <img src="/storage/emulated/0/DCIM/Design portfolio/VALEDICTORY-SERVICE-2024.jpg?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="VS Flyer" class="project-image">
+                    <div class="project-info">
+                        <h3 class="project-title">Valedictory Service Flyer</h3>
+                        <p class="project-description">Beautifully crafted flyer made to grab attention as a way of creating awareness ahead of the valedictory service of Divine Achievers Academy in 2024.</p>
+                        <div class="project-tags">
+                            <span class="tag">School</span>
+                            <span class="tag">Valedictory Service</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 4 -->
+                <div class="project-card">
+                    <img src="/storage/emulated/0/DCIM/Design portfolio/NAPS WEEK 2024 FLYER.jpg?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Packaging Design" class="project-image2">
+                    <div class="project-info">
+                        <h3 class="project-title">NAPS WEEK 2024</h3>
+                        <p class="project-description">A poster design that strongly represents the association whose activities it is announcing. It screams SCIENCE! It screams PHYSICS!</p>
+                        <div class="project-tags">
+                            <span class="tag">Poster design</span>
+                            <span class="tag">Print Design</span>
+                            <span class="tag">Science</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 5 -->
+                <div class="project-card">
+                    <img src="https://images.unsplash.com/photo-1639762681057-408e52192e55?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Digital Illustration" class="project-image">
+                    <div class="project-info">
+                        <h3 class="project-title">Cyber City</h3>
+                        <p class="project-description">Digital illustration series imagining futuristic urban landscapes.</p>
+                        <div class="project-tags">
+                            <span class="tag">Digital Art</span>
+                            <span class="tag">Concept Art</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 6 -->
+                <div class="project-card">
+                    <img src="https://images.unsplash.com/photo-1614680376573-df3480f0c6ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Editorial Design" class="project-image">
+                    <div class="project-info">
+                        <h3 class="project-title">Modernist Quarterly</h3>
+                        <p class="project-description">Editorial design for a contemporary art and design publication.</p>
+                        <div class="project-tags">
+                            <span class="tag">Editorial</span>
+                            <span class="tag">Layout</span>
+                            <span class="tag">Print</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 7 -->
+                <div class="project-card">
+                    <img src="https://images.unsplash.com/photo-1589998059171-988d887df646?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Web Design" class="project-image">
+                    <div class="project-info">
+                        <h3 class="project-title">Nova Web UI</h3>
+                        <p class="project-description">Interface design system for a SaaS platform with dark mode aesthetics.</p>
+                        <div class="project-tags">
+                            <span class="tag">UI Design</span>
+                            <span class="tag">Web</span>
+                            <span class="tag">Figma</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 8 -->
+                <div class="project-card">
+                    <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Motion Graphics" class="project-image">
+                    <div class="project-info">
+                        <h3 class="project-title">Kinetic Type</h3>
+                        <p class="project-description">Motion graphics piece exploring animated typography sequences.</p>
+                        <div class="project-tags">
+                            <span class="tag">Motion</span>
+                            <span class="tag">After Effects</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 9 -->
+                <div class="project-card">
+                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Social Media Graphics" class="project-image">
+                    <div class="project-info">
+                        <h3 class="project-title">Viral Visuals</h3>
+                        <p class="project-description">Social media campaign graphics designed for maximum engagement.</p>
+                        <div class="project-tags">
+                            <span class="tag">Social Media</span>
+                            <span class="tag">Marketing</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 10 -->
+                <div class="project-card">
+                    <img src="https://images.unsplash.com/photo-1639762681057-408e52192e55?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="3D Rendering" class="project-image">
+                    <div class="project-info">
+                        <h3 class="project-title">Hyperreal 3D</h3>
+                        <p class="project-description">Series of 3D rendered objects with hyperrealistic materials and lighting.</p>
+                        <div class="project-tags">
+                            <span class="tag">3D Art</span>
+                            <span class="tag">Blender</span>
+                            <span class="tag">Rendering</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="contact-title">Get In Touch</h2>
+            <p class="contact-subtitle">
+                I'm currently available for freelance projects and collaborations. 
+                Whether you have a question or just want to say hi, I'll do my best to get back to you!
+            </p>
+            <div class="contact-info">
+                <a href="tel:08080164223" class="contact-item">
+                    <span class="contact-icon">📱</span>
+                    <span>08080164223</span>
+                </a>
+                <a href="mailto:corneliusayomide@gmail.com" class="contact-item">
+                    <span class="contact-icon">✉️</span>
+                    <span>corneliusayomide@gmail.com</span>
+                </a>
+                <a href="https://facebook.com/Adeniyi Cornelius Ayomide" target="_blank" class="contact-item">
+                    <span class="contact-icon">💬</span>
+                    <span>Adeniyi Cornelius Ayomide</span>
+                </a>
+            </div>
+            <a href="mailto:corneliusayomide@gmail.com" class="btn">Send Me a Message</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>Designed & Built by Cornelius Ayomide © <span id="year"></span></p>
+        </div>
+    </footer>
+
+    <script>
+        // Update copyright year automatically
+        document.getElementById('year').textContent = new Date().getFullYear();
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
